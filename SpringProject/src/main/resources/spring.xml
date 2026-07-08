@@ -5,20 +5,22 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="alien" class="org.example.Alien" autowire="byName">
-<!--        <constructor-arg value="21" />-->
-<!--        <constructor-arg ref="lap1" />-->
-<!--        constructor-arg also have index if we are not following the sequence-->
-<!--        constructor-arg has types but only works if the types are different-->
-<!--        constructor-arg has name, but we need to use @constructorproperties annotation with the name we need in the class-->
-        <property name="age" value="21" />
-<!--        <property name="com" ref="lap1" />-->
+        <!--        <constructor-arg value="21" />-->
+        <!--        <constructor-arg ref="lap1" />-->
+        <!--        constructor-arg also have index if we are not following the sequence-->
+        <!--        constructor-arg has types but only works if the types are different-->
+        <!--        constructor-arg has name, but we need to use @constructorproperties annotation with the name we need in the class-->
+        <property name="age" value="21"/>
+        <!--        <property name="com" ref="lap1" />-->
     </bean>
 
-    <bean id="com1" class="org.example.Laptop">
+    <bean id="com1" class="org.example.Laptop" primary="true">
+        <!--        If the constructor-arg goes byType and if there are multiple beans with same type then the one with marked primary true gonna be taken-->
 
     </bean>
 
-    <bean id="com" class="org.example.Desktop">
+    <bean id="com" class="org.example.Desktop" lazy-init="true">
+<!--        when the bean is not required in first initialization or load of the project we can mark it lazy-->
 
     </bean>
 

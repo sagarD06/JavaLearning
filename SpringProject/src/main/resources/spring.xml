@@ -5,9 +5,17 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="alien" class="org.example.Alien">
-    <property name="age" value="21">
+        <constructor-arg value="21" />
+        <constructor-arg ref="lap1" />
+<!--        constructor-arg also have index if we are not following the sequence-->
+<!--        constructor-arg has types but only works if the types are different-->
+<!--        constructor-arg has name, but we need to use @constructorproperties annotation with the name we need in the class-->
+<!--        <property name="age" value="21" />-->
+<!--        <property name="lap" ref="lap1" />-->
+    </bean>
 
-    </property>
+    <bean id="lap1" class="org.example.Laptop">
+
     </bean>
 
 </beans>

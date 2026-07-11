@@ -15,8 +15,14 @@ public class App
     {
 
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        Desktop dk = context.getBean(Desktop.class);
-        dk.compile();
+
+        Alien obj = context.getBean(Alien.class);
+        System.out.println(obj.getAge());
+        obj.code();
+
+//        Desktop dk = context.getBean(Desktop.class);
+//        dk.compile();
+
 
         //below is the XML way of configuration
 //        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
